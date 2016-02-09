@@ -52,6 +52,9 @@ if __name__ == '__main__':
     # load input
     color_print("blue", "Loading data from " + options["input"]+" ..." )
     nr, nc, data = read_input(options["input"])
+
+    # convert data
+    data = format_numpy(nr,nc,data)
     
     # Process data with given method
     color_print("blue", "Processing data with method n° " + options["method"]+" ..." )

@@ -4,7 +4,6 @@
 Fonctions.py
 """
 
-
 # Utilities
 import os, sys
 # Maths with Numpy
@@ -63,10 +62,11 @@ def read_input(_file):
             # first line is special
             args = data[0].split()
             data = data[1:]
-        return args[0], args[1], data
+        return int(args[0]), int(args[1]), data
     except:
         color_print("red", "Error : cannot read data file : " + _file)
         exit()
+
 
 
 
