@@ -90,10 +90,10 @@ if __name__ == '__main__':
                 best_score = len(output)
                 color_print("red", "Best score is " + str(best_score) )
                 final_output = copy.copy(output)
-        # save best output
-        color_print("blue", "Saving file to " + options["output_path"] + " ..." )
-        write_commands(final_output, options["output_path"])
-        color_print("green", "Saving done !")
+                # save best output
+                color_print("blue", "Saving file to " + options["output_path"] + " ..." )
+                write_commands(final_output, options["output_path"])
+                color_print("green", "Saving done !")
 
     else :
         color_print("red", "Error : wrong method !")

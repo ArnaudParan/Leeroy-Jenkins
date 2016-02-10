@@ -116,7 +116,6 @@ def grandit_ligneh(indices, nr, nc, data):
         elif data[r,c] == 2:
             ligneh[0] = c+1
             elems.append((elemh,eraseh,ligneh))
-            continue
         elif c-1 > 0 and data[r,c-1] == 1:
             eraseh.add((r,c))
             elemh.add((r,c-1))
@@ -147,7 +146,7 @@ def grandit_lignev(indices, nr, nc, data):
     erasev = set()
     r,c = indices
     elems = [(elemv,erasev,lignev)] # keep memory of all tries
-    # grow right
+    # grow down
     while True:
         r+=1
         if r >= nr:
@@ -172,7 +171,7 @@ def grandit_lignev(indices, nr, nc, data):
     lignev[0] = r-1
     r = indices[0]
 
-    # grow left
+    # grow up
     while True:
         r-=1
         if r < 0:
@@ -180,7 +179,7 @@ def grandit_lignev(indices, nr, nc, data):
         if data[r,c] == 1:
             elemv.add((r,c))
         elif data[r,c] == 2:
-            lignev[0] = r+1
+            lignev[1] = r+1
             elems.append((elemv,erasev,lignev))   
         elif r-1 > 0 and data[r-1,c] == 1:
             erasev.add((r,c))
@@ -191,7 +190,7 @@ def grandit_lignev(indices, nr, nc, data):
             r-=1
         elif r+1 < nr and data[r-1,c] == 2:
             erasev.add((r,c))
-            lignev[0] = r+1
+            lignev[1] = r+1
             elems.append((elemv,erasev,lignev))
             r-=1
         else :
@@ -205,7 +204,7 @@ def grandit_lignev(indices, nr, nc, data):
 
     elemv, erash, lignev = elems[best]
 
-    return ( (lignev[0],c),(lignev[1],c) ) , elemv, erasev
+    return ( (lignev[1],c),(lignev[0],c) ) , elemv, erasev
 
 
 def compte_carre(d,nr,nc,data):
@@ -361,7 +360,7 @@ def process_data_method1(nr, nc, data, squares=True, method=1):
 
 
         if best == 2:
-            to_draw.add(("SQUARE", tuple(carre) ))         # add square
+            to_draw.add(("SQUARE", tuple(carre) ))    # add square
         else:
             to_draw.add(("LINE", elems[best][0] ))    # add line
 
