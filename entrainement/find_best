@@ -1,0 +1,6 @@
+#! /bin/bash
+# find_best
+
+python main.py -i input/logo.in -m 2 -n 1000 -o ./output/logo/super_best_logo.txt
+python main.py -i input/right_angle.in -m 2 -n 1000 -o ./output/right_angle/super_best_right_angle.txt
+python main.py -i input/learn_and_teach.in -m 3 -n 1000 -o ./output/learn/super_best_learn.txt
