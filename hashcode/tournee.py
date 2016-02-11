@@ -61,3 +61,11 @@ def incr_drone_time(drone, client, times_array, droneId):
 def square_distance(r1, c1, r2, c2):
     return ((r1 - r2)**2) + ((c1 - c2)**2)
 
+def argmin(tab):
+	x = min(tab)
+	indicemin=0
+	for index,element in enumerate(tab):
+		if x==element:
+			indicemin=index
+	return indicemin
+			
