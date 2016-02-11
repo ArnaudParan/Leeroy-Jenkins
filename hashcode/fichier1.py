@@ -23,11 +23,12 @@ class Drone:
         self.cost = 0
         self.wht = weight(self.package)
         self.wht_limit = WHT_LIMIT
+        self.is_moving = False
         
-    def move(self, to_r, to_c):
-        self.cost += int(square_distance(self.r, self.c, to_r, to_c)) + 1
-        self.r = to_r
-        self.c = to_c
+    def move(self, warehouse):
+        self.cost += int(square_distance(self.r, self.c, warehouse.r, warehouse.c)) + 1
+        self.r = warehouse.r
+        self.c = warehouse.c
         
     def carriable(self, order):
         is_deliverable = True
