@@ -54,8 +54,3 @@ def add_dict(dict1, dict2):
         else:
             dict2[key] = dict1[key]
     return dict2
-
-###### CLASSE DRONE ######
-
-class Drone:
-    def __init__(self,)

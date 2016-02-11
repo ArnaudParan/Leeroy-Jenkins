@@ -4,13 +4,13 @@ Created on Thu Feb 11 21:15:49 2016
 
 @author: Simon
 """
+WHT_LIMIT = 100     
 
 def weight(package):
     pack_weight = 0
     for key in package:
         pack_weight += products[key].weight
-    return pack_weight
- WHT_LIMIT = 100       
+    return pack_weight  
 
 ###### CLASSE DRONE ######
 
@@ -46,8 +46,7 @@ class Product:
     def __init__(self, prod_id, wht):
         self.id = prod_id
         self.wht = wht
-            
-        
+
             
         
         
