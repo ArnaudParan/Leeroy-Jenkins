@@ -25,3 +25,21 @@ def write_commands(output, output_path, file_number=1):
         
 
     return coms
+    
+def assign_warehouse(client):
+    d = Array()
+    d[0] = dist(client, 0)
+    d_min = d[0]
+    arg_min = 0
+    for w in range(1,W):
+        d[w] = dist(client, w)
+        if(d[w] < d_min):
+            d_min == d[w]
+            arg_min = w
+    return w
+    
+def assign_warehouse_cycle():
+    for c in client:
+        assign_warehouse(c)
+        
+        
