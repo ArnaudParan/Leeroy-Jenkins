@@ -1,40 +1,20 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Thu Feb 11 21:01:20 2016
 
-def write_commands(output, output_path, file_number=1):
-    save_folder = os.path.dirname(output_path)
-    save_file = os.path.basename(output_path)
+@author: Simon
+"""
 
-    if not os.path.exists(save_folder):
-        os.makedirs(save_folder)
-
-    #print "Writting results in file : " + output_path + " ..." 
-
-    # SAVE HERE
-    with open(save_folder+'/'+str(file_number)+save_file,'wb') as sf:
-        #sf.write( [ ';'.join(l)+'\n' for l in data ] )
-        sf.write(str(len(output))+'\n')
-
-        for line in output:
-            sf.write(line+'\n')
-
-
- def commands():
-    coms = []
-    # drawing commands
-    for d in to_draw:
-        
-
-    return coms
-
-def square_dist():
+def square_distance(r1, c1, r2, c2):
+    return ((r1 - r2)**2) + ((c1 - c2)**2)
  
-def assign_warehouse(client):
+def assign_warehouse(client, warehouses):
     d = Array()
-    d[0] = dist(client, 0)
+    d[0] = square_distance(client.r, client.c, warehouses[0].r, warehouses[0].c)
     d_min = d[0]
     arg_min = 0
     for w in range(1,W):
-        d[w] = dist(client, w)
+        d[w] = square_distance(client.r, client.c, warehouses[w].r, warehouses[w].c)
         if(d[w] < d_min):
             d_min == d[w]
             arg_min = w
@@ -43,6 +23,8 @@ def assign_warehouse(client):
 def assign_warehouse_cycle():
     for c in client:
         assign_warehouse(c)
+
+###### CLASSE CLIENT ######
         
 class Client:
     def __init__(self,r,c,demands_list):
@@ -67,8 +49,8 @@ def to_dict(list):
 # dict1 est toujours le dictionnaire de plus grande taille
 def add_dict(dict1, dict2):
     for key in dict1:
-        if(dict2[key] == None):
-            dict2[key] = dict1[key]
-        else:
+        if key in dict2:
             dict2[key] += dict1[key]
+        else:
+            dict2[key] = dict1[key]
     return dict2
