@@ -59,10 +59,8 @@ def read_input(_file):
         with open(_file, 'rb') as infile:
             # read all lines
             data = [line.rstrip('\n') for line in infile]
-            # first line is special
-            args = data[0].split()
-            data = data[1:]
-        return int(args[0]), int(args[1]), data
+
+        return data
     except:
         color_print("red", "Error : cannot read data file : " + _file)
         exit()
