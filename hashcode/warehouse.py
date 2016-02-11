@@ -5,7 +5,7 @@ class WareHouse:
 	#self.produits est un dictionnaire.
 	def __init__(self, listeCoord, listeProduit):
 		self.r = listeCoord[0]
-		self.x = listeCoord[1]
+		self.c = listeCoord[1]
 		self.produits = {}
 		for produitID in listeProduit:
 			if produitID in self.produits.keys():
