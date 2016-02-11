@@ -63,37 +63,13 @@ if __name__ == '__main__':
 
     if options["method"] == '1':
         data_save = copy.copy(data)
-        output = process_data_method1(nr, nc, data, True) # use squares
-        output2 = process_data_method1(nr, nc, data_save, False) # only lines
-        print str(len(output)) + " operations avec carrés et lignes"
-        print str(len(output2)) + " operations avec lignes"
+        output = process_data_method1(nr, nc, data)
 
-        # Saving results
-        color_print("blue", "Saving file to " + options["output_path"] + " ..." )
-        write_commands(output, options["output_path"])
-        write_commands(output2, options["output_path"],2)
-        color_print("green", "Saving done !")
+        # # Saving results
+        # color_print("blue", "Saving file to " + options["output_path"] + " ..." )
+        # write_commands(output, options["output_path"])
+        # color_print("green", "Saving done !")
 
-
-    elif options["method"] == '2' or options["method"] == '3':
-        squares = (options["method"] == '2')
-        data_save = copy.copy(data)
-        best_score = 10000000
-        for i in range(1,options["iterations"]):
-
-            sys.stdout.write("\rProgress : %i%% \r" % (100*i/options["iterations"]) )
-            sys.stdout.flush()
-            
-            data = copy.copy(data_save)
-            output = process_data_method1(nr, nc, data, squares, 2)
-            if len(output) < best_score:
-                best_score = len(output)
-                color_print("red", "Best score is " + str(best_score) )
-                final_output = copy.copy(output)
-                # save best output
-                color_print("blue", "Saving file to " + options["output_path"] + " ..." )
-                write_commands(final_output, options["output_path"])
-                color_print("green", "Saving done !")
 
     else :
         color_print("red", "Error : wrong method !")
@@ -101,4 +77,3 @@ if __name__ == '__main__':
         exit()
 
     
-
